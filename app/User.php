@@ -4,6 +4,24 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
+
+
+class User extends Model
+{
+    /**
+     * The roles that belong to the user.
+     */
+    public function roles()
+    {
+        return $this->belongsToMany('App\Role');
+    }
+
+    public function noterooms()
+    {
+        return $this->belongsToMany('App\Noteroom');
+    }
+}
 
 class User extends Authenticatable
 {

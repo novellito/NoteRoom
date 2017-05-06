@@ -1,0 +1,29 @@
+ .panel, .panel-group .panel-heading+.panel-collapse>.panel-body{
+    border: none;
+}
+
+
+.dropdown-item{
+	color:black;
+}
+
+.panel-heading {
+  padding-bottom: 0px;
+}
+
+.panel-body {
+  padding-bottom: 0px;
+}
+/*#accordion{
+	
+	padding-left: 10px;
+	margin:-6px;
+	width: 160px;
+	cursor: pointer;
+
+}
+
+.panel-heading + a {
+	padding: 123px 0px 0px 0px;  
+}*/
+

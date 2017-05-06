@@ -11,6 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+/*
+|--------------------------------------------------------------------------
+| Noteroom Routes
+|--------------------------------------------------------------------------
+|
+*/
+Route::get('/noteroom', function () {
+	return view('notes');
 });
+
+Route::get("create", 'testing@index');
