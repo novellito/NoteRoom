@@ -8,27 +8,20 @@
 
 }
 
-
-/*body{
-
-	
-	background-image: url("../img/binderPic.png");
-	background-repeat: no-repeat;
-	background-size: cover ;
-
-}*/
-
-/*[contentEditable=true]:empty:not(:focus):before{
-        content:attr(data-text)
-    }*/
-
-
-
  .subjects{
  	text-align:center;
  }
 
  .panel-body.binder{
  	height:70vh;
- 	border:2px solid #7edaea;
+ 	border:2px solid  #cccccc;
+	 
  }
+
+
+.panel-info>.panel-heading {
+    background:  #cccccc;
+    border-color:  #cccccc;
+	font-size:20px;
+	color:black;
+}

@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+
   <title>@yield('title')</title>
   <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
   <!-- Latest compiled and minified CSS -->
@@ -11,6 +13,12 @@
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
   </script>
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+   <script>
+        window.Laravel = {!! json_encode([
+            'csrfToken' => csrf_token(),
+        ]) !!};
+    </script>
   <link rel="stylesheet" href="\NoteRoom\font-awesome-4.7.0\css\font-awesome.min.css">
   <link rel= "stylesheet" href="\NoteRoom\public\css\nav_footer.css">
   @yield('styles')
@@ -30,10 +38,14 @@
                 <div class="panel-heading">
                   <a href="#collapseOne" class ="dropdown-item" data-toggle="collapse" data-parent="#accordion">My Noterooms</a>
                  <div class="panel-collapse collapse" id="collapseOne"> 
-                    <div class="panel-body"> 
-                      <li><a class="dropdown-item" href="#">COMP 380</a></li>
-                      <li><a class="dropdown-item" href="#">COMP 222</a></li>
-                      <li><a class="dropdown-item" href="#">ECON 175</a></li>
+                    <div class="panel-body" style="padding-top:5px"> 
+                          @foreach ($user->noterooms as $noteroom)
+                      <a class="class-links" href="" style="color:black;">
+                        
+                          {{$noteroom->title}}
+                        
+                      </a>
+                          @endforeach
                     </div>
                   </div>
                 </div>
@@ -66,9 +78,33 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true" style="font-size: 1.5em;"></i></a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/NoteRoom/public/binder">My Binder</a></li>
+            <!--<li><a class="dropdown-item" href="/NoteRoom/public/binder">My Binder</a></li>-->
             <li><a class="dropdown-item" href="#">Settings</a></li>
-            <li><a class="dropdown-item" href="#">Logout</a></li>
+             <!-- Authentication Links -->
+                        @if (Auth::guest())
+                            <li><a href="{{ route('login') }}">Login</a></li>
+                            <li><a href="{{ route('register') }}">Register</a></li>
+                        @else
+                            <li>
+                                <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>-->
+
+                                <!--<ul class="dropdown-menu" role="menu">-->
+                                    <!--<li>-->
+                                        <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    <!--</li>-->
+                                <!--</ul>-->
+                            </li>
+                        @endif
           </ul>
         </li>
       </ul>
@@ -82,9 +118,9 @@
         <div class="content-wrap">
             <h4></h4>
             <div class="footerElems">
-                <a href="#">About</a>
-                <a href="#">Contact Us</a>
-                <a href="#">Our Team</a>
+                <a href="http://localhost/NoteRoom/public/#about">About</a>
+                <a href="http://localhost/NoteRoom/public/#contact">Contact Us</a>
+                <a href="http://localhost/NoteRoom/public/#team">Our Team</a>
             </div>
             <p style="margin-bottom: 0;">Copyright 2017 by NoteRoomLLC</p>
             <div class="logos">
@@ -94,7 +130,7 @@
             </div>
         </div>
     </footer>
-
+<!--<script src="{{ asset('js/app.js') }}"></script>-->
   <script>
       $('.dropdown-accordion').on('show.bs.dropdown', function (event) {
         var accordion = $(this).find($(this).data('accordion'));
