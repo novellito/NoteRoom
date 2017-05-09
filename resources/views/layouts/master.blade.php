@@ -40,7 +40,7 @@
                  <div class="panel-collapse collapse" id="collapseOne"> 
                     <div class="panel-body" style="padding-top:5px"> 
                           @foreach ($user->noterooms as $noteroom)
-                      <a class="class-links" href="" style="color:black;">
+                      <a class="class-links" href="http://localhost/NoteRoom/Public/binder" style="color:black;">
                         
                           {{$noteroom->title}}
                         
@@ -76,7 +76,7 @@
       </div>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true" style="font-size: 1.5em;"></i></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> {{ Auth::user()->name }}  <i class="fa fa-user-circle" aria-hidden="true" style="font-size: 1.5em;"></i></a>
           <ul class="dropdown-menu">
             <!--<li><a class="dropdown-item" href="/NoteRoom/public/binder">My Binder</a></li>-->
             <li><a class="dropdown-item" href="#">Settings</a></li>

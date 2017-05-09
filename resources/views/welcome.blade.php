@@ -6,12 +6,17 @@
   <!-- Optional theme -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
   <!-- Latest compiled and minified JavaScript -->
- 
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>NoteRoom</title>
 
+         <script>
+        window.Laravel = {!! json_encode([
+            'csrfToken' => csrf_token(),
+        ]) !!};
+    </script>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
         <style>
@@ -52,6 +57,16 @@
 
             .content {
                 text-align: center;
+            }
+
+            .corner a{
+                font-size:20px;
+                  color: white;
+                padding: 0 25px;
+                font-weight: 900;
+                letter-spacing: .1rem;
+                text-decoration: none;
+                text-transform: uppercase;
             }
 
             .title {
@@ -188,11 +203,21 @@
             <div class="parallax">
                 <div class="flex-center position-ref full-height">
                     @if (Route::has('login'))
-                        <div class="top-right links" style="z-index: 20;">
+                        <div class="top-right corner" style="z-index: 20;">
                             @if (Auth::check())
-                                <a href="{{ url('/home') }}">My Binder</a>
+                                <a href="{{ url('/binder') }}">My Binder</a>
+                              <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                 
                             @else
-                                <a href="{{ url('/login') }}">Login</a>
+                                <a class ="page-scroll" href="#login">Login</a>
                                 <a href="{{ url('/register') }}">Register</a>
                             @endif
                         </div>
@@ -202,15 +227,16 @@
                             NoteRoom
                         </div>
                         <div class="links">
-                            <a href="#about">About</a>
-                            <a href="#explain">What is it?</a>
-                            <a href="#team">Meet the Team</a>
-                            <a href="#contact">Contact Us</a>
+                            <a class ="page-scroll" href="#about">About</a>
+                            <a class ="page-scroll" href="#explain">What is it?</a>
+                            <a class ="page-scroll" href="#team">Meet the Team</a>
+                            <a class ="page-scroll" href="#contact">Contact Us</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+@if (!(Auth::check()))
           <section class = "section section-white">
                 <div class="container white-space" style="display: block; text-align: center;">
                     <div class="row">
@@ -223,7 +249,6 @@
 
             
         </section>
-
         <div class="parallax0" id="login">
             <div class = "flex-center position-ref full-height">
                 <div class="panel-body">
@@ -234,7 +259,7 @@
                             <label for="email" class=" control-label">Email</label>
 
                             <div class="col-md-12">
-                                <input id="email" type="text" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+                                <input id="email" type="text" class="form-control" name="email" value="{{ old('email') }}" required >
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -283,7 +308,7 @@
                 </div>
             </div>
         </div>
-
+@endif
         <section class = "section section-white">
                 <div class="container white-space" style="display: block; text-align: center;">
                     <div class="row">
@@ -387,8 +412,35 @@
                 <h3><a href="mailto:info@noteroom.com" style="color: white">info@noteroom.com</a></h3>
             </div>
         </div>
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
-  </script>  
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+        
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+        </script>  
+     <script src="/noteroom/public/js/jquery.easing.min.js">   </script>
+      <script>  
+        //jQuery to collapse the navbar on scroll
+// $(window).scroll(function() {
+//     if ($(".navbar").offset().top > 50) {
+//         $(".navbar-fixed-top").addClass("top-nav-collapse");
+//     } else {
+//         $(".navbar-fixed-top").removeClass("top-nav-collapse");
+//     }
+// });
+
+//jQuery for page scrolling feature - requires jQuery Easing plugin
+$(function() {
+    $(document).on('click', 'a.page-scroll', function(event) {
+        var $anchor = $(this);
+        $('html, body').stop().animate({
+            scrollTop: $($anchor.attr('href')).offset().top
+        }, 1500, 'easeInOutExpo');
+        event.preventDefault();
+    });
+});      
+      </script>
+     
     </body>
 </html>

@@ -10,14 +10,14 @@
 	font-size:50px;
 }
 
-body {
+/*body {
     background: #ffffff url("img/binderbg.jpg") no-repeat;
 		background-color:rgba(0, 0, 0, 0.4);
 }
 
 .panel-body.binder{
 	  background: #ffffff url("img/binderbg.jpg") no-repeat;
-}
+}*/
 </style>
 <link rel= "stylesheet" href="\NoteRoom\public\css\binder_page.css">
 

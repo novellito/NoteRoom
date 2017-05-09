@@ -34,12 +34,14 @@ Route::get('/', function () {
 
 
 Route::get('/noteroom', function () {
-	return view('notes');
+	$user = App\User::with('noterooms')->findOrFail(Auth::user()->id);
+	return view('notes', compact('user'));
+	// return view('notes');
 });
 
 
 // Route::get('/binder', function () {
-//     return view('binder');
+//     return view('binder')->name('binder');
 // });
 
 Route::get('/binder', 'BinderController@dashboard');
