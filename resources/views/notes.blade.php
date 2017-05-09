@@ -63,7 +63,7 @@
           method: "POST",
           url: "{{ route('something') }}",
           data: {notes: JSON.stringify(contents)},
-          contentType: "application/json",
+          // contentType: "application/json",
         }).done(function(data) {
           console.log(data);
         });

@@ -3,13 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Note;
 
 class TestNotesController extends Controller
 {
     public function test(Request $request) {
+    // public function test() {
         // return json_encode($request->notes);
+        // dd($request);
         // return $request->notes;
-        return "all's good.";
+        Note::create([
+            "noteroom_id" => "1",
+            "txt"         => $request->notes,
+        ]);
+        // return "all's good.";
     }
 
     /**
