@@ -33,7 +33,11 @@ var toolbarOptions = [
     theme: 'snow'
   });
 
-
+  // var updateContents = function() {
+  //   var text = quill.getText();
+  //   console.log(text);
+  //   return text;
+  // };
 
   //fires an update for the newest notes
   socket.on('checkAllNotes', function(){

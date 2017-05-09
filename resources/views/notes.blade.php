@@ -16,6 +16,9 @@
         <div class="row content">
         {{-- was at col-sm-9 before --}}
             <div class="col-sm-12 text-left"> 
+            <div class="pull-right" style="padding-top: 11px; padding-right: 13px;">
+              <button class="btn btn-sm btn-primary" style="padding: 1px;" id="save">Save</button>
+            </div>
             <div class="clearfix" style="background-color: #efeff5;">
               <div id="editor" style="height:60vh;">
               </div>
@@ -41,5 +44,31 @@
   <script src = "\NoteRoom\public\js\quillCode.js"></script> 
    <!-- {{--  temporarily commented to separate ask a question function from quill stuff - will need to integrate later... --}} -->
   <!--  <script src = "\NoteRoom\public\js\client.js"></script> -->
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $("#save").click(function() {
+        var contents = quill.getContents();
+        console.log(contents);  
+        $.ajaxSetup({
+          headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+        });
+        $.ajax({
+          method: "POST",
+          url: "{{ route('something') }}",
+          data: {notes: JSON.stringify(contents)},
+          contentType: "application/json",
+        }).done(function(data) {
+          console.log(data);
+        });
+      });
+    });
+  </script>
 </body>
 @stop

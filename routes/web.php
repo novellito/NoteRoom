@@ -58,3 +58,11 @@ Route::get('/home', 'HomeController@index');
 
 Route::get("create", 'testing@index');
 
+Route::post('something', 'TestNotesController@test')
+  ->name('something');
+
+// Route::post('something', function(Request $request) {
+//   return $request->message;
+//   // return "this is something";
+// })->name('something');
+
