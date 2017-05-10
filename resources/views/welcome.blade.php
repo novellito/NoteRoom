@@ -11,191 +11,16 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>NoteRoom</title>
-
+        <link rel="icon" type="image/x-icon" href="img/NRlogoblue.png" />
          <script>
         window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),
         ]) !!};
-    </script>
+        </script>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-        <style>
-            html, body {
-                background-color: #fff;
-                color: grey;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-            
-            img{
-                margin:auto; 
-                height:200px;
-                width:200px;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .corner a{
-                font-size:20px;
-                  color: white;
-                padding: 0 25px;
-                font-weight: 900;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .title {
-                font-size: 120px;
-                color: white;
-            }
-
-            h1 {
-                font-weight: bold;
-                font-size: 200px;
-                color: white;
-            }
-
-            .contax h3:hover{
-                font-size:40px;
-            }
-
-            .links > a {
-                color: white;
-                padding: 0 25px;
-                font-size: 20px;
-                font-weight: 900;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-            .links > a:hover{
-               font-size: 30px;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-
-            .split{
-                font-size: 70px;
-            }
-
-            .section-white{
-                height: 100px;
-            }
-
-            .contax{
-                text-align: center;
-                padding-top: 15%;
-            }
-            
-            .desc2{
-                font-weight: bold;
-                font-size: 75px;
-                color:#6e8f3d; 
-                text-align: left;
-                padding-left: 10px;
-            }
-
-            .parallax0{
-                background-image: url("img/loginbg.jpg");
-                height: 100%; 
-                background-attachment: fixed;
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: cover;
-            }
-
-            .parallax { 
-                background-image: url("img/csunov.jpg");
-                height: 100%; 
-                background-attachment: fixed;
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: cover;
-            }
-            .parallax1 { 
-                background-image: url("img/brick.jpg");
-                height: 100%; 
-                background-attachment: fixed;
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: cover;
-            }  
-            .parallax2 { 
-                background-image: url("img/notebook.jpg");
-                height: 100%; 
-                background-attachment: fixed;
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: cover;
-            }
-            .parallax3 { 
-                background-image: url("img/network.jpg");
-                height: 100%; 
-                background-attachment: fixed;
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: cover;
-            }
-            .parallax4 { 
-                background-image: url("img/mail.jpg");
-                height: 100%; 
-                background-attachment: fixed;
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: cover;
-            }
-
-            .team h3, .team p{
-                color:white;
-                font-weight:600;
-            }
-
-            .img-circle{
-                border: 2px solid #fff;
-            }
-
-            .desc{
-                font-weight:bold;
-                font-size:75px;
-                color:#ebd514;/*#f1e260;*/
-                text-align:center;
-            }
-
-            #login{
-                color:white;
-                text-align:center;
-                font-weight:bold;
-                font-size:60px;
-            }
-         
-        </style>
+        <link rel="stylesheet" href="\NoteRoom\public\css\welcomeMain.css">
+        <link rel="stylesheet" href="\NoteRoom\public\css\responsiveWelcome.css">
     </head>
 
     <body>
@@ -203,10 +28,10 @@
             <div class="parallax">
                 <div class="flex-center position-ref full-height">
                     @if (Route::has('login'))
-                        <div class="top-right corner" style="z-index: 20;">
+                        <div class="top-right corner cont" style="z-index: 20;">
                             @if (Auth::check())
-                                <a href="{{ url('/binder') }}">My Binder</a>
-                              <a href="{{ route('logout') }}"
+                                <a class = "mb" href="{{ url('/binder') }}">My Binder</a>
+                              <a class ="log" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             Logout
@@ -246,53 +71,40 @@
                            
                         </div>
                     </div>
-
-            
         </section>
         <div class="parallax0" id="login">
             <div class = "flex-center position-ref full-height">
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
-
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class=" control-label">Email</label>
+                            <label for="email" class="login-form ">Email</label>
 
-                            <div class="col-md-12">
-                                <input id="email" type="text" class="form-control" name="email" value="{{ old('email') }}" required >
+                                <input id="email" type="text" class=" form-control" name="email" value="{{ old('email') }}" required >
 
                                 @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
+                                    <!--<span class="help-block">-->
+                                        <p>{{ $errors->first('email') }}</p>
+                                    <!--</span>-->
                                 @endif
-                            </div>
                         </div>
-
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class=" control-label">Password</label>
-
-                            <div class="col-md-12">
+                            <label for="password" class="login-form ">Password</label>
                                       <input id="password" type="password" class="form-control" name="password" required>
 
                                 @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
+                                    <!--<span class="help-block">-->
+                                        <p>{{ $errors->first('password') }}</p>
+                                    <!--</span>-->
                                 @endif
-                                
-                              
-                            </div>
                         </div>
 
                         <div class="form-group" style="margin-bottom: 0px;">
-                            <div>
-                                <div class="checkbox">
-                                    <label class="remember" style="font-size:30px;">
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+                                <div class="checkbox" style="text-align:center; margin-right:20px;">
+                                    <label class="remember" style="font-size:25px;">
+                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }} style="margin-top:15px;"> Remember Me
                                     </label>
                                 </div>
-                            </div>
                         </div>
 
                         <div class="form-group">
@@ -318,8 +130,6 @@
                            
                         </div>
                     </div>
-
-            
         </section>
         <div class="parallax1" id="about">
             <div class = "flex-center position-ref full-height desc">
@@ -330,7 +140,7 @@
         </div>
 
 
-        <section class = "section section-white">
+        <section class = "section section-white what-is-label">
                 <div class="container white-space" style="display: block; text-align: center;">
                     <div class="row">
                         <div class="col-sm-12">
@@ -346,7 +156,7 @@
             </div>
         </div>
 
-        <section class = "section section-white">
+        <section class = "section section-white meet">
                 <div class="container white-space" style="display: block; text-align: center;">
                     <div class="row">
                         <div class="col-sm-12">
@@ -356,21 +166,68 @@
                 </div>
         </section>
         <div class="parallax3" id="team">
-            <div class="container">
-                <div class="row team" style="margin-top:5%;">
-                    <div class="col-lg-12">
+
+            <div class="container team-xs">
+                    <div class="row hidden-lg">
+                        <div class="row text-center">  
+                             <img class="img-circle img-responsive img-center" 
+                             style="width:125px; height:125px; margin-top:20px;"
+                             src="img/gabe.png" alt="" >
+                            <h3>Gabriel Alabastro
+                            </h3>
+                            <p>Team Leader</p>
+                        </div>
                     </div>
-                    <div class="col-lg-4 col-sm-6 text-center">
-                        <img class="img-circle img-responsive img-center" src="img/xtian.png" alt="" >
-                        <h3>Christian Trinidad
+                    <div class="row text-center hidden-lg"> 
+                        <div class="col-xs-6">  
+                         <img class="img-circle img-responsive img-center" 
+                             style="width:125px; height:125px; "
+                             src="img/xtian.png" alt="" >
+                            <h3>Christian Trinidad
+                            </h3>
+                            <p>Full Stack Developer</p>
+                        </div>
+                        <div class="col-xs-6">  
+                         <img class="img-circle img-responsive img-center" 
+                             style="width:125px; height:125px; "
+                             src="img/ary.png" alt="" >
+                            <h3>Aryan Mokhber
+                            </h3>
+                            <p>Front End Developer</p>
+                        </div>
+                    </div>
+                    <div class="row text-center hidden-lg"> 
+                        <div class="col-xs-6">  
+                         <img class="img-circle img-responsive img-center" 
+                             style="width:125px; height:125px; margin-top:20px;"
+                             src="img/nan.png" alt="" >
+                        <h3>Anando Mahbubah
                         </h3>
-                        <p>Full Stack Developer</p>
+                        <p>Back End Developer</p>
+                        </div>
+                        <div class="col-xs-6">  
+                         <img class="img-circle img-responsive img-center" 
+                             style="width:125px; height:125px; margin-top:20px;"
+                             src="img/ray.png" alt="" >
+                              <h3>Raymond Nazaryan
+                              </h3>
+                            <p>Back End Developer</p>
+                        </div>
                     </div>
+            </div>
+            <div class="container hidden-xs hidden-sm hidden-md">
+                <div class="row team" style="margin-top:5%;">
+                        <div class="col-lg-4 col-sm-6 text-center">
+                            <img class="img-circle img-responsive img-center" src="img/xtian.png" alt="" >
+                            <h3>Christian Trinidad
+                            </h3>
+                            <p>Full Stack Developer</p>
+                        </div>
                     <div class="col-lg-4 col-sm-6 text-center">
                         <img class="img-circle img-responsive img-center" src="img/gabe.png" alt="" >
                         <h3>Gabriel Alabastro
                         </h3>
-                        <p>Full Stack Developer</p>
+                        <p>Team Leader</p>
                     </div>
                     <div class="col-lg-4 col-sm-6 text-center">
                         <img class="img-circle img-responsive img-center" src="img/nan.png" alt="" >

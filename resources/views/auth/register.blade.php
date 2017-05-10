@@ -1,5 +1,15 @@
 @extends('layouts.app')
 
+
+
+<style> 
+body {
+    /*background: #ffffff url("img/registerbg.png") no-repeat;
+		background-color:rgba(0, 0, 0, 0.4);
+        width:100%;*/
+}
+</style>
+
 @section('content')
 <div class="container">
     <div class="row">

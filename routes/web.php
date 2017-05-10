@@ -32,6 +32,10 @@ Route::get('/', function () {
 	return view('welcome');
 });
 
+// Route::get('/createNR', function () {
+// 	return view('createNoteRoom');
+// });
+
 
 Route::get('/noteroom', function () {
 	$user = App\User::with('noterooms')->findOrFail(Auth::user()->id);
