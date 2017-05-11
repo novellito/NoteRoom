@@ -64,3 +64,7 @@ Route::get('/home', 'HomeController@index');
 
 Route::get("create", 'testing@index');
 
+Route::get('createNoteRoom', 'InviteController@invite')->name('invite');
+Route::post('createNoteRoom', 'InviteController@process')->name('process');
+
+Route::get('accept/{token}', 'InviteController@accept')->name('accept');

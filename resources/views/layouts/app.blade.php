@@ -19,12 +19,17 @@
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
+
+
+    <style>
+    
+    </style>
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+        <nav class="navbar navbar-inverse navbar-static-top" style="padding-bottom: 15px;">
             <div class="container">
-                <div class="navbar-header">
+                <div class="navbar-header" style="margin-top:10px; ">
 
                     <!-- Collapsed Hamburger -->
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
@@ -35,7 +40,7 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
+                    <a class="navbar-brand" href="{{ url('/') }}" style="font-size:20px;">
                         {{ config('app.name', 'Laravel') }}
                     </a>
                 </div>

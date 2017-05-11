@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,6 +24,13 @@
     </script>
   <link rel="stylesheet" href="\NoteRoom\font-awesome-4.7.0\css\font-awesome.min.css">
   <link rel= "stylesheet" href="\NoteRoom\public\css\nav_footer.css">
+
+  <style>
+  button.myBut:hover{
+    color:white;
+    background-color:rgb(57, 160, 199);
+  }
+  </style>
   @yield('styles')
 </head>
 <body>
@@ -56,20 +65,35 @@
                   <div class="panel-body"> 
                       <li>
                         <form>
-                          <div class="form-group">
+                          <div class="form-group" style="margin-bottom:0px;">
                             <input type="text" class="form-control input-sm" placeholder="Enter Code">
-                            <button type="submit" class="btn btn-secondary btn-sm">Submit</button>
+                            <button type="submit" class="btn btn-secondary btn-sm myBut">Submit</button>
                           </div>
                         </form>
                       </li>   
                   </div>
                 </div>
               </div>
-              <li>
+              <div class="panel-heading">
+                <a href="#collapse3" class ="dropdown-item" data-toggle="collapse" data-parent="#accordion">Create Noteroom</a>
+                <div class="panel-collapse collapse" id="collapse3"> 
+                  <div class="panel-body" > 
+                      <li>
+                        <form>
+                          <div class="form-group">
+                            <input type="text" class="form-control input-sm" placeholder="Enter Name">
+                            <button type="submit" class="btn btn-secondary btn-sm myBut">Submit</button>
+                          </div>
+                        </form>
+                      </li>   
+                  </div>
+                </div>
+              </div>
+              <!--<li>
                 <div class="panel-heading" id="create">
                   <a href="#" class ="dropdown-item">Create Noteroom</a>
                 </div>
-              </li>
+              </li>-->
               </div>
             </ul>
           </li>

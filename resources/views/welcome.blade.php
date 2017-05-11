@@ -42,8 +42,8 @@
                                         </form>
                                  
                             @else
-                                <a class ="page-scroll" href="#login">Login</a>
-                                <a href="{{ url('/register') }}">Register</a>
+                                <a class ="page-scroll lo loggedOut1" href="#login">Login</a>
+                                <a href="{{ url('/register') }}" class=" lo loggedOut2">Register</a>
                             @endif
                         </div>
                     @endif

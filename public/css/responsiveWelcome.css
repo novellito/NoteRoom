@@ -26,6 +26,11 @@
         right: 0px;
         top: 18px;
     }
+    a.loggedOut1,
+    a.loggedOut2 {
+        font-size: 15px;
+        padding: 0px 10px 0px 0px;
+    }
     #about p {
         font-size: 30px;
         text-align: center;
