@@ -7,16 +7,18 @@ use App\Note;
 
 class TestNotesController extends Controller
 {
+    /**
+     * This is going to save notes to the database
+     * 
+     * @param  Request $request this should have the note_id and notes from editor
+     * @return void
+     */
     public function test(Request $request) {
-    // public function test() {
-        // return json_encode($request->notes);
-        // dd($request);
-        // return $request->notes;
-        Note::create([
-            "noteroom_id" => "1",
-            "txt"         => $request->notes,
-        ]);
-        // return "all's good.";
+        Note::updateOrCreate(
+            // need to change this to note_id
+            ["noteroom_id" => "1"],
+            ["txt" => $request->notes]
+        );
     }
 
     /**

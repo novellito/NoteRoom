@@ -44,30 +44,46 @@
   <script src = "\NoteRoom\public\js\quillCode.js"></script> 
    <!-- {{--  temporarily commented to separate ask a question function from quill stuff - will need to integrate later... --}} -->
   <!--  <script src = "\NoteRoom\public\js\client.js"></script> -->
-  <script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+  {{-- this is the csrf token for ajax call --}}
   <meta name="csrf-token" content="{{ csrf_token() }}">
+
+  {{-- script for saving --}}
   <script type="text/javascript">
     $(document).ready(function() {
+
+      // saves the document on clicking the save buttin
       $("#save").click(function() {
+        save();
+      });
+
+      // every five seconds, save the contents
+      setInterval(function() {
+        save();
+      }, 5000);
+
+      var save = function() {
+
+        // grab the contents from the editor
         var contents = quill.getContents();
-        console.log(contents);  
+
+        // grabs the csrf token to be sent with the ajax
         $.ajaxSetup({
           headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
           }
         });
+
         $.ajax({
           method: "POST",
           url: "{{ route('something') }}",
           data: {notes: JSON.stringify(contents)},
-          // contentType: "application/json",
+
         }).done(function(data) {
-          console.log(data);
+          // console.log(data);
         });
-      });
+      }
     });
   </script>
 </body>
