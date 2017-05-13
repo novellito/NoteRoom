@@ -65,8 +65,12 @@
 				<div class="panel-heading">Your Classes</div>
 				<div class="panel-body binder">
 					<ul class="subjects binder">
-						@foreach ($user->noterooms as $noteroom) {{$noteroom->title}}
-						<br> @endforeach
+						@foreach ($user->noterooms as $noteroom)
+							<a href="binder/{{$noteroom->id}}">
+								{{$noteroom->title}}
+							</a>
+							<br> 
+						@endforeach
 					</ul>
 				</div>
 			</div>

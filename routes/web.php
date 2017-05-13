@@ -49,6 +49,7 @@ Route::get('/noteroom', function () {
 // });
 
 Route::get('/binder', 'BinderController@dashboard');
+// Route::get('/binder', 'BinderController@dashboard');
 
 Route::get('/about', function () {
 	return view('about');

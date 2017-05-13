@@ -53,6 +53,8 @@ class NoteroomController extends Controller
         // assicate the noteroom with the user
         $u = Auth::user();
         $u->noterooms()->attach($n->id); 
+
+        return redirect('/binder');
     }
 
     /**
