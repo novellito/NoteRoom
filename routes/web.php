@@ -32,14 +32,20 @@ Route::get('/', function () {
 	return view('welcome');
 });
 
+// Route::get('/createNR', function () {
+// 	return view('createNoteRoom');
+// });
+
 
 Route::get('/noteroom', function () {
-	return view('notes');
+	$user = App\User::with('noterooms')->findOrFail(Auth::user()->id);
+	return view('notes', compact('user'));
+	// return view('notes');
 });
 
 
 // Route::get('/binder', function () {
-//     return view('binder');
+//     return view('binder')->name('binder');
 // });
 
 Route::get('/binder', 'BinderController@dashboard');
@@ -68,3 +74,7 @@ Route::resource('noterooom', 'NoteroomController');
 //   // return "this is something";
 // })->name('something');
 
+Route::get('createNoteRoom', 'InviteController@invite')->name('invite');
+Route::post('createNoteRoom', 'InviteController@process')->name('process');
+
+Route::get('accept/{token}', 'InviteController@accept')->name('accept');

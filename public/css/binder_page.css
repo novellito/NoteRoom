@@ -1,34 +1,21 @@
-.box{
-
-
-	border: 2px solid red;
-	margin: 5px 20px 0px 20px;
-	height: 80vh;
-
-
+.box {
+    border: 2px solid red;
+    margin: 5px 20px 0px 20px;
+    height: 80vh;
 }
 
+.subjects {
+    text-align: center;
+}
 
-/*body{
+.panel-body.binder {
+    height: 70vh;
+    border: 2px solid #cccccc;
+}
 
-	
-	background-image: url("../img/binderPic.png");
-	background-repeat: no-repeat;
-	background-size: cover ;
-
-}*/
-
-/*[contentEditable=true]:empty:not(:focus):before{
-        content:attr(data-text)
-    }*/
-
-
-
- .subjects{
- 	text-align:center;
- }
-
- .panel-body.binder{
- 	height:70vh;
- 	border:2px solid #7edaea;
- }
+.panel-info>.panel-heading {
+    background: #b0d5e2;
+    border-color: #d8d8d8;
+    font-size: 20px;
+    color: black;
+}

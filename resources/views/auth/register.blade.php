@@ -1,8 +1,28 @@
 @extends('layouts.app')
 
+<style>
+    body {
+        background: url("img/registerbg.jpg") no-repeat 100% ;
+        background-size: 100% 100%;
+    }
+    /*h1,
+    label,
+    p.help-block {
+        color: white;
+    }
+    .input-group-addon {
+        background-color: #a2c9e6;
+    }
+    .input.form-control {
+        background-color: #c2e4f5;
+    }*/
+</style>
+<link rel="stylesheet" href="\NoteRoom\font-awesome-4.7.0\css\font-awesome.min.css">
+  <link rel= "stylesheet" href="\NoteRoom\public\css\nav_footer.css">
+
 @section('content')
 <div class="container">
-    <div class="row">
+    <div class="row" style="margin-top:30px;">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Register</div>
@@ -127,4 +147,21 @@
         </div>
     </div>
 </div>
+
+ <footer id="contact">
+        <div class="content-wrap">
+            <h4></h4>
+            <div class="footerElems">
+                <a href="http://localhost/NoteRoom/public/#about">About</a>
+                <a href="http://localhost/NoteRoom/public/#contact">Contact Us</a>
+                <a href="http://localhost/NoteRoom/public/#team">Our Team</a>
+            </div>
+            <p style="margin-bottom: 0;">Copyright 2017 by NoteRoomLLC</p>
+            <div class="logos">
+              <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+              <a href="#"><i class="fa fa-github-square" aria-hidden="true"></i></a>
+              <a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </footer>
 @endsection

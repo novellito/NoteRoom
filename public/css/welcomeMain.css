@@ -1,0 +1,202 @@
+  html,
+  body {
+      background-color: #fff;
+      color: grey;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 100;
+      height: 100vh;
+      margin: 0;
+  }
+
+  img {
+      margin: auto;
+      height: 200px;
+      width: 200px;
+  }
+
+  .full-height {
+      height: 100vh;
+  }
+
+  .flex-center {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+  }
+
+  .position-ref {
+      position: relative;
+  }
+
+  .top-right {
+      position: absolute;
+      right: 10px;
+      top: 18px;
+  }
+
+  .content {
+      text-align: center;
+  }
+
+  .corner a {
+      font-size: 20px;
+      color: white;
+      padding: 0 25px;
+      font-weight: 900;
+      letter-spacing: .1rem;
+      text-decoration: none;
+      text-transform: uppercase;
+  }
+
+  .title {
+      font-size: 120px;
+      color: white;
+  }
+
+  h1 {
+      font-weight: bold;
+      font-size: 200px;
+      color: white;
+  }
+
+  .contax h3:hover {
+      font-size: 40px;
+  }
+
+  .links>a {
+      color: white;
+      padding: 0 25px;
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: .1rem;
+      text-decoration: none;
+      text-transform: uppercase;
+  }
+
+  .links>a:hover {
+      font-size: 30px;
+  }
+
+  .m-b-md {
+      margin-bottom: 30px;
+  }
+
+  .split {
+      font-size: 70px;
+  }
+
+  .section-white {
+      height: 100px;
+  }
+
+  .contax {
+      text-align: center;
+      padding-top: 15%;
+  }
+
+  .desc2 {
+      font-weight: bold;
+      font-size: 75px;
+      color: #6e8f3d;
+      text-align: left;
+      padding-left: 10px;
+  }
+
+  .parallax0 {
+      background-image: url("../img/loginbg.jpg");
+      height: 100%;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+  }
+
+  .parallax {
+      background-image: url("../img/csunov.jpg");
+      height: 100%;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+  }
+
+  .parallax1 {
+      background-image: url("../img/brick.jpg");
+      height: 100%;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+  }
+
+  .parallax2 {
+      background-image: url("../img/notebook.jpg");
+      height: 100%;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+  }
+
+  .parallax3 {
+      background-image: url("../img/network.jpg");
+      height: 100%;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+  }
+
+  .parallax4 {
+      background-image: url("../img/mail.jpg");
+      height: 100%;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+  }
+
+  .team h3,
+  .team p {
+      color: white;
+      font-weight: 600;
+  }
+
+  .img-circle {
+      border: 2px solid #fff;
+  }
+
+  .desc {
+      font-weight: bold;
+      font-size: 75px;
+      color: #fdff94;
+      /*#f1e260;*/
+      text-align: center;
+  }
+
+  #login {
+      color: white;
+      text-align: center;
+      font-weight: bold;
+      font-size: 60px;
+  }
+
+  .login-form {
+      font-size: 20px;
+      float: left;
+      margin-left: 17px;
+  }
+
+  .checkbox label,
+  .radio label {
+      font-weight: 0;
+  }
+
+  form div p {
+      font-size: 15px;
+  }
+
+  .team-xs {
+      color: white;
+      font-weight: bold;
+  }
