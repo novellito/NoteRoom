@@ -59,14 +59,15 @@
                     </div>
                   </div>
                 </div>
+              {{-- TODO: fix acessability issues --}}
               <div class="panel-heading">
                 <a href="#collapseTwo" class ="dropdown-item" data-toggle="collapse" data-parent="#accordion">Join Noteroom</a>
                 <div class="panel-collapse collapse" id="collapseTwo"> 
                   <div class="panel-body"> 
                       <li>
-                        <form>
+                        <form action="{{ route('join') }}">
                           <div class="form-group" style="margin-bottom:0px;">
-                            <input type="text" class="form-control input-sm" placeholder="Enter Code">
+                            <input type="text" class="form-control input-sm" name="join" id="join" placeholder="Enter Code">
                             <button type="submit" class="btn btn-secondary btn-sm myBut">Submit</button>
                           </div>
                         </form>

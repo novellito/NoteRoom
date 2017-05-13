@@ -42,6 +42,7 @@ class NoteroomController extends Controller
         ]);
 
         // need to generate invite code
+        // TODO: make this auto-generate code
         $inviteCode = "TEST";
 
         // create the noteroom
@@ -54,6 +55,27 @@ class NoteroomController extends Controller
         $u = Auth::user();
         $u->noterooms()->attach($n->id); 
 
+        // redirect to their binder page
+        return redirect('/binder');
+    }
+
+    public function join(Request $request) {
+        // validate request
+        $this->validate($request, [
+            'invite_id' => $request->join,
+        ]);
+        
+        // $inviteCode = "TEST";
+
+        // find the noteroom with this invite_id
+        // TODO: make sure invite codes are unique
+        $n = Noteroom::where('invite_id', $request->join)->first();
+
+        // assicate the noteroom with the user
+        $u = Auth::user();
+        $u->noterooms()->attach($n->id); 
+
+        // redirect to their binder page
         return redirect('/binder');
     }
 

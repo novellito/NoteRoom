@@ -49,6 +49,7 @@ Route::get('/noteroom', function () {
 // });
 
 Route::get('/binder', 'BinderController@dashboard');
+// TODO: 
 // Route::get('/binder', 'BinderController@dashboard');
 
 Route::get('/about', function () {
@@ -68,4 +69,5 @@ Route::get("create", 'testing@index');
 Route::post('something', 'TestNotesController@test')
   ->name('something');
 
+Route::get('/noteroom/join', 'NoteroomController@join')->name('join');
 Route::resource('noteroom', 'NoteroomController');
