@@ -67,14 +67,4 @@ Route::get("create", 'testing@index');
 Route::post('something', 'TestNotesController@test')
   ->name('something');
 
-Route::resource('noterooom', 'NoteroomController');
-
-// Route::post('something', function(Request $request) {
-//   return $request->message;
-//   // return "this is something";
-// })->name('something');
-
-Route::get('createNoteRoom', 'InviteController@invite')->name('invite');
-Route::post('createNoteRoom', 'InviteController@process')->name('process');
-
-Route::get('accept/{token}', 'InviteController@accept')->name('accept');
+Route::resource('noteroom', 'NoteroomController');

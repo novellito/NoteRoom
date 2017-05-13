@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Noteroom;
+use Illuminate\Support\Facades\Auth;
 
 class NoteroomController extends Controller
 {
@@ -51,7 +52,6 @@ class NoteroomController extends Controller
 
         // assicate the noteroom with the user
         $u = Auth::user();
-        dd($u);
         $u->noterooms()->attach($n->id); 
     }
 

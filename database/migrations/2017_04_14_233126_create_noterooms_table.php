@@ -16,8 +16,8 @@ class CreateNoteroomsTable extends Migration
         Schema::create('noterooms', function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->string('title');
-            $table->integer('note_id')->unsigned();
             $table->string('invite_id');
+            $table->timestamps();
         });
 
             

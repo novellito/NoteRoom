@@ -79,9 +79,10 @@
                 <div class="panel-collapse collapse" id="collapse3"> 
                   <div class="panel-body" > 
                       <li>
-                        <form>
+                        <form action="{{ route('noteroom.store') }}" method="POST">
+                        {{ csrf_field() }}
                           <div class="form-group">
-                            <input type="text" class="form-control input-sm" placeholder="Enter Name">
+                            <input type="text" class="form-control input-sm" name="title" id="title" placeholder="Enter Name">
                             <button type="submit" class="btn btn-secondary btn-sm myBut">Submit</button>
                           </div>
                         </form>
