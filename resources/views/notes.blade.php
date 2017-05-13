@@ -16,9 +16,9 @@
         <div class="row content">
         {{-- was at col-sm-9 before --}}
             <div class="col-sm-12 text-left"> 
-            <div class="pull-right" style="padding-top: 11px; padding-right: 13px;">
-              <button class="btn btn-sm btn-primary" style="padding: 1px;" id="save">Save</button>
-            </div>
+              <div class="pull-right" style="padding-top: 11px; padding-right: 13px;">
+                <button class="btn btn-sm btn-primary" style="padding: 1px;" id="save">Save</button>
+              </div>
             <div class="clearfix" style="background-color: #efeff5;">
               <div id="editor" style="height:60vh;">
               </div>
