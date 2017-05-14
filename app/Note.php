@@ -14,7 +14,7 @@ class Note extends Model
     /**
      * Allows particular variabes to be fillable.
      */
-    protected $fillable = ["noteroom_id", "txt"];
+    protected $fillable = ["noteroom_id", "txt", 'title'];
 
     /**
      * The users that belong to the role.

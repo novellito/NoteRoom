@@ -78,7 +78,7 @@
         $.ajax({
           method: "POST",
           url: "{{ route('something') }}",
-          data: {notes: JSON.stringify(contents)},
+          data: {notes: JSON.stringify(contents), noteId: {{$noteId}} },
 
         }).done(function(data) {
           // console.log(data);

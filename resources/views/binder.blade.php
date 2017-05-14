@@ -97,16 +97,23 @@
 				</div>
 				<div class="panel-body binder">
 					<h3 style="text-align: center;">
-						{{-- this is going to check for the notes --}}
-						{{-- @forelse ()
-						@empty
-						@endforelse --}}
+						@if ($current)
+							@forelse ($current->notes as $note)
+								<a href="{{ url('/noteroom/'.$note->id) }}">
+									{{$note->title}}
+								</a>
+							@empty
+								You currently have no notes for this noteroom...
+							@endforelse
+						@endif
 					</h3>
 					@if ($current)
-						<form class="form-inline createForm">
+						<form class="form-inline createForm" action="{{ route('note.store') }}" method="POST">
+							{{ csrf_field() }}
 							<div class="form-group">
 								<span>Create a Note: </span>
-								<input type="text" class="form-control" id="createNR" placeholder="Enter Name">
+								<input type="hidden" name="noteroom" value="{{ $current->id }}">
+								<input type="text" class="form-control" name="title" id="createNR" placeholder="Enter Name">
 							</div>
 							<button type="submit" class="btn btn-sm btn-primary">Create</button>
 						</form>

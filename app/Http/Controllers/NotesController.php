@@ -15,8 +15,7 @@ class NotesController extends Controller
      */
     public function test(Request $request) {
         Note::updateOrCreate(
-            // need to change this to note_id
-            ["noteroom_id" => "1"],
+            ['id' => $request->noteId],
             ["txt" => $request->notes]
         );
     }
@@ -49,7 +48,20 @@ class NotesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // validate the request
+        $this->validate($request, [
+            'title' => 'required',
+            'noteroom' => 'required',
+        ]);
+
+        // store the note
+        $n = Note::create([
+            'title' => $request->title,
+            'noteroom_id' => $request->noteroom
+        ]);
+
+        // redirect back to the binder
+        return redirect('/binder');
     }
 
     /**

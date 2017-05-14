@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Noteroom;
+use App\Note;
 use Auth;
 
 class BinderController extends Controller
@@ -18,7 +19,7 @@ class BinderController extends Controller
         // this will check if there is a current noteroom selected
         $current = $noteroom;
         if ($current != null) {
-            $current = Noteroom::where('id', $noteroom)->first();
+            $current = Noteroom::where('id', $noteroom)->with('notes')->first();
         }
 
         // this pulls the relationship between a user and noterooms

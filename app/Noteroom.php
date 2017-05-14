@@ -23,4 +23,12 @@ class Noteroom extends Model
     {
         return $this->belongsToMany('App\User');
     }
+
+    /**
+     * this returns all the notes associated with a noteroom
+     */
+    public function notes() 
+    {
+        return $this->hasMany('App\Note');
+    }
 }

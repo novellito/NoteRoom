@@ -37,9 +37,9 @@ Route::get('/', function () {
 // });
 
 
-Route::get('/noteroom', function () {
+Route::get('/noteroom/{noteId}', function ($noteId) {
 	$user = App\User::with('noterooms')->findOrFail(Auth::user()->id);
-	return view('notes', compact('user'));
+	return view('notes', compact('user', 'noteId'));
 	// return view('notes');
 });
 
@@ -49,7 +49,6 @@ Route::get('/noteroom', function () {
 // });
 
 Route::get('/binder/{noteroom?}', 'BinderController@dashboard');
-// TODO: 
 // Route::get('/binder', 'BinderController@dashboard');
 
 Route::get('/about', function () {
@@ -63,10 +62,11 @@ Route::get('/login', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+Route::resource('note', 'NotesController');
 
 Route::get("create", 'testing@index');
 
-Route::post('something', 'TestNotesController@test')
+Route::post('something', 'NotesController@test')
   ->name('something');
 
 Route::get('/noteroom/join', 'NoteroomController@join')->name('join');
