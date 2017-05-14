@@ -37,11 +37,13 @@ Route::get('/', function () {
 // });
 
 
-Route::get('/noteroom/{noteId}', function ($noteId) {
-	$user = App\User::with('noterooms')->findOrFail(Auth::user()->id);
-	return view('notes', compact('user', 'noteId'));
-	// return view('notes');
-});
+// Route::get('/noteroom/{noteId}', function ($noteId) {
+// 	$user = App\User::with('noterooms')->findOrFail(Auth::user()->id);
+
+// 	return view('notes', compact('user', 'noteId'));
+// 	// return view('notes');
+// });
+
 
 
 // Route::get('/binder', function () {

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Noteroom;
+use App\Note;
 use Illuminate\Support\Facades\Auth;
 
 class NoteroomController extends Controller
@@ -87,7 +88,13 @@ class NoteroomController extends Controller
      */
     public function show($id)
     {
-        //
+         // $user = App\User::with('noterooms')->findOrFail(Auth::user()->id);
+         $user = Auth::user()->with('noterooms')->first();
+         $noteId = $id;
+         $note = Note::where('id', $id)->first();
+         $existing = $note->txt;
+         // dd($existing);
+         return view('notes', compact('user', 'noteId', 'existing'));
     }
 
     /**

@@ -17,7 +17,7 @@
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="/noteroom/public/binder"><img src="img/NRlogoblue.png" height="30" width="40">
+  <a class="navbar-brand" href="/noteroom/public/binder"><img src="{{ asset('img/NRlogoblue.png') }}" height="30" width="40">
   </a>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">

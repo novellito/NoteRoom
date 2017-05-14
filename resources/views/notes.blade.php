@@ -3,7 +3,6 @@
 @section('title', 'Notes Page')
 
 @section('styles')
-  <link rel= "stylesheet" href="\NoteRoom\public\css\myNotes.css">
   <link href="https://cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet">
 @endsection
 
@@ -52,7 +51,7 @@
   {{-- script for saving --}}
   <script type="text/javascript">
     $(document).ready(function() {
-
+      quill.updateContents({!!$existing!!});
       // saves the document on clicking the save buttin
       $("#save").click(function() {
         save();
