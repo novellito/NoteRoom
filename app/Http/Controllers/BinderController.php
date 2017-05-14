@@ -14,10 +14,16 @@ class BinderController extends Controller
      * 
      * @return \Illuminate\Http\Response 
      */
-    public function dashboard() {
+    public function dashboard($noteroom = null) {
+        // this will check if there is a current noteroom selected
+        $current = $noteroom;
+        if ($current != null) {
+            $current = Noteroom::where('id', $noteroom)->first();
+        }
+
         // this pulls the relationship between a user and noterooms
         $user = User::with('noterooms')->findOrFail(Auth::user()->id);
-        return view('binder', compact('user'));
+        return view('binder', compact('user', 'current'));
     }
 
     /**

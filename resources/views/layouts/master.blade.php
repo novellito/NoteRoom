@@ -36,7 +36,7 @@
 <body>
   <nav class="navbar navbar-inverse navbar-static-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="{{ url('/') }}" ><img src="img/NRlogoblue.png" height="25" width="40"></a>
+    <a class="navbar-brand" href="{{ url('/') }}" ><img src="{{ asset('img/NRlogoblue.png') }}" height="25" width="40"></a>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="main-nav-collapse">
       <div class="dropdown dropdown-accordion mr-auto" data-accordion="#accordion"> 
@@ -49,6 +49,7 @@
                   <a href="#collapseOne" class ="dropdown-item" data-toggle="collapse" data-parent="#accordion">My Noterooms</a>
                  <div class="panel-collapse collapse" id="collapseOne"> 
                     <div class="panel-body" style="padding-top:5px"> 
+                    {{-- TODO: need to change the urls to go to binder with noteroom page selected --}}
                           @foreach ($user->noterooms as $noteroom)
                       <a class="class-links" href="http://localhost/NoteRoom/Public/binder" style="color:black;">
                         
