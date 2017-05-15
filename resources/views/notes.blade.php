@@ -36,15 +36,20 @@
             </div> --}}
         </div>
     </div>
+    
+  {{-- noteroom id needed for the javascript on the page --}}
   <script type="text/javascript">
     var noteroomId = {{ $noteId }} ;
   </script> 
+
+  {{-- quilljs and socket.io cdn's for the page--}}
   <script src="https://cdn.quilljs.com/1.0.0/quill.js"></script>
   <script src="\NoteRoom\node_modules\socket.io-client\dist\socket.io.js"></script>
-     <!-- Initialize Quill editor -->
+
+  <!-- Initialize Quill editor -->
   <script src = "\NoteRoom\public\js\quillCode.js"></script> 
-   <!-- {{--  temporarily commented to separate ask a question function from quill stuff - will need to integrate later... --}} -->
-  <!--  <script src = "\NoteRoom\public\js\client.js"></script> -->
+
+  {{-- JQuery needed for the saving script below --}}
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
   {{-- this is the csrf token for ajax call --}}

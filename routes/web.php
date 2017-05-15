@@ -11,44 +11,9 @@
 |
 */
 
-/*
-|--------------------------------------------------------------------------
-| Dashboard Routes
-|--------------------------------------------------------------------------
-|
-*/
-
-Route::get('/userdashboard', 'UserController@dashboard');
-
-
-/*
-|--------------------------------------------------------------------------
-| Noteroom Routes
-|--------------------------------------------------------------------------
-|
-*/
-
 Route::get('/', function () {
 	return view('welcome');
 });
-
-// Route::get('/createNR', function () {
-// 	return view('createNoteRoom');
-// });
-
-
-// Route::get('/noteroom/{noteId}', function ($noteId) {
-// 	$user = App\User::with('noterooms')->findOrFail(Auth::user()->id);
-
-// 	return view('notes', compact('user', 'noteId'));
-// 	// return view('notes');
-// });
-
-
-
-// Route::get('/binder', function () {
-//     return view('binder')->name('binder');
-// });
 
 Route::get('/binder/{noteroom?}', 'BinderController@dashboard');
 // Route::get('/binder', 'BinderController@dashboard');
