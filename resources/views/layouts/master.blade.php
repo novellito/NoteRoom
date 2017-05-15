@@ -46,7 +46,7 @@
             <ul class="dropdown-menu">
               <div class="panel-group" id="accordion" style="margin-bottom: 0px;">
                 <div class="panel-heading">
-                  <a href="#collapseOne" class ="dropdown-item" data-toggle="collapse" data-parent="#accordion">My Noterooms</a>
+                  <a href="{{ url('/binder') }}" class ="dropdown-item">My Noterooms</a>
                  <div class="panel-collapse collapse" id="collapseOne"> 
                     <div class="panel-body" style="padding-top:5px"> 
                     {{-- TODO: need to change the urls to go to binder with noteroom page selected --}}
@@ -62,21 +62,6 @@
                 </div>
               {{-- TODO: fix acessability issues --}}
               <div class="panel-heading">
-                <a href="#collapseTwo" class ="dropdown-item" data-toggle="collapse" data-parent="#accordion">Join Noteroom</a>
-                <div class="panel-collapse collapse" id="collapseTwo"> 
-                  <div class="panel-body"> 
-                      <li>
-                        <form action="{{ route('join') }}">
-                          <div class="form-group" style="margin-bottom:0px;">
-                            <input type="text" class="form-control input-sm" name="join" id="join" placeholder="Enter Code">
-                            <button type="submit" class="btn btn-secondary btn-sm myBut">Submit</button>
-                          </div>
-                        </form>
-                      </li>   
-                  </div>
-                </div>
-              </div>
-              <div class="panel-heading">
                 <a href="#collapse3" class ="dropdown-item" data-toggle="collapse" data-parent="#accordion">Create Noteroom</a>
                 <div class="panel-collapse collapse" id="collapse3"> 
                   <div class="panel-body" > 
@@ -85,6 +70,21 @@
                         {{ csrf_field() }}
                           <div class="form-group">
                             <input type="text" class="form-control input-sm" name="title" id="title" placeholder="Enter Name">
+                            <button type="submit" class="btn btn-secondary btn-sm myBut">Submit</button>
+                          </div>
+                        </form>
+                      </li>   
+                  </div>
+                </div>
+              </div>
+              <div class="panel-heading">
+                <a href="#collapseTwo" class ="dropdown-item" data-toggle="collapse" data-parent="#accordion">Join Noteroom</a>
+                <div class="panel-collapse collapse" id="collapseTwo"> 
+                  <div class="panel-body"> 
+                      <li>
+                        <form action="{{ route('join') }}">
+                          <div class="form-group" style="margin-bottom:0px;">
+                            <input type="text" class="form-control input-sm" name="join" id="join" placeholder="Enter Code">
                             <button type="submit" class="btn btn-secondary btn-sm myBut">Submit</button>
                           </div>
                         </form>
@@ -158,7 +158,6 @@
             </div>
         </div>
     </footer>
-<!--<script src="{{ asset('js/app.js') }}"></script>-->
   <script>
       $('.dropdown-accordion').on('show.bs.dropdown', function (event) {
         var accordion = $(this).find($(this).data('accordion'));

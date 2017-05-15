@@ -84,18 +84,15 @@
 				</div>
 			</div>
 		</div>
-
 		<div class="col-sm-6">
 			<div class="panel panel-info">
 				<!-- Default panel contents -->
 				<div class="panel-heading">
 					@if ($current) 
 					Your Notes for {{$current->title}}
-					{{-- <div class="clearfix"> --}}
-						<div class="pull-right">
-							Invite Code: {{$current->invite_id}}
-						</div>
-					{{-- </div> --}}
+					<div class="pull-right">
+						Invite Code: {{$current->invite_id}}
+					</div>
 					@else
 					Please Select Noteroom
 					@endif
