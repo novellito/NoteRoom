@@ -9,7 +9,7 @@
 @section('content') 
 <body style="background-color: #e0e0eb">
     <h2 class ="page_title"style="text-align: center;">
-      Comp 380 / Notes Set-1
+      {{$roomTitle}}
     </h2>
     <div class="container text-center"> 
         <div class="row content">
@@ -36,7 +36,9 @@
             </div> --}}
         </div>
     </div>
-   
+  <script type="text/javascript">
+    var noteroomId = {{ $noteId }} ;
+  </script> 
   <script src="https://cdn.quilljs.com/1.0.0/quill.js"></script>
   <script src="\NoteRoom\node_modules\socket.io-client\dist\socket.io.js"></script>
      <!-- Initialize Quill editor -->
@@ -51,7 +53,12 @@
   {{-- script for saving --}}
   <script type="text/javascript">
     $(document).ready(function() {
-      quill.updateContents({!!$existing!!});
+
+      // updates the noteroom if there is already
+      if ({{$existing != NULL? 1:0}}) {
+        quill.updateContents({!!$existing!!});
+      }
+      
       // saves the document on clicking the save buttin
       $("#save").click(function() {
         save();

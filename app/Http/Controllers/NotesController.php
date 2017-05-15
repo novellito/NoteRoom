@@ -61,7 +61,7 @@ class NotesController extends Controller
         ]);
 
         // redirect back to the binder
-        return redirect('/binder');
+        return redirect('/binder/'.$request->noteroom);
     }
 
     /**

@@ -39,6 +39,10 @@ var toolbarOptions = [
   //   return text;
   // };
 
+  socket.on('whatRoom', function(data) {
+    socket.emit('thisRoom', {room: noteroomId});
+  })
+
   //fires an update for the newest notes
   socket.on('checkAllNotes', function(){
 
@@ -46,7 +50,7 @@ var toolbarOptions = [
 
     var contents = quill.getContents();
 
-    socket.emit('sendContents', contents);
+    socket.emit('sendContents', {contents: contents, room: noteroomId});
     console.log('contents', contents);
 
   });
@@ -54,7 +58,6 @@ var toolbarOptions = [
 
   socket.on('updateAll', function(contents){
       
-    
       if(($('.ql-editor').hasClass("ql-blank")))
       {
         quill.updateContents(contents); 
@@ -79,7 +82,7 @@ var toolbarOptions = [
 
     if(source == 'user'){ 
   
-     socket.emit('textUp',  {'delta': JSON.stringify(delta)});
+     socket.emit('textUp',  {'delta': JSON.stringify(delta), room: noteroomId});
 
     }
  

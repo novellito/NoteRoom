@@ -93,8 +93,8 @@ class NoteroomController extends Controller
          $noteId = $id;
          $note = Note::where('id', $id)->first();
          $existing = $note->txt;
-         // dd($existing);
-         return view('notes', compact('user', 'noteId', 'existing'));
+         $roomTitle = $note->title; 
+         return view('notes', compact('user', 'noteId', 'existing', 'roomTitle'));
     }
 
     /**

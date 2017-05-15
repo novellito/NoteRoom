@@ -2,23 +2,17 @@ var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
-var users = [];
-
 //establishes the connection 
 io.on('connection', function(socket){
     console.log('a user connected');
 
-    users.push(socket.id);
+    socket.emit('whatRoom');
+    socket.on('thisRoom', function(data) {
+      socket.join(data.room);
+    });
 
-    //TODO -- who to update from if first user leaves?   
-
-    //we only update from the original host (for now)
-    socket.to(users[0]).broadcast.emit('checkAllNotes');
-
-    socket.on('sendContents', function(contents){
-
-      socket.broadcast.emit('updateAll', contents);
-
+    socket.on('sendContents', function(data){
+      socket.broadcast.to(data.room).emit('updateAll', data.contents);
     });
   
 
@@ -33,7 +27,7 @@ io.on('connection', function(socket){
     socket.on('textUp', function(data){
 
 
-        socket.broadcast.emit('dataToClient', data);
+        socket.broadcast.to(data.room).emit('dataToClient', data);
 
 
       /*keep these here just in case things go bad 
@@ -49,11 +43,7 @@ io.on('connection', function(socket){
 
     //assign updates to next element in array...
     socket.on('disconnect', function(){
-
-      users = users.slice(1,users.length-1);
       console.log('User left :(');
-
-
     });
 
 

@@ -99,9 +99,11 @@
 					<h3 style="text-align: center;">
 						@if ($current)
 							@forelse ($current->notes as $note)
-								<a href="{{ url('/noteroom/'.$note->id) }}">
-									{{$note->title}}
-								</a>
+								<div class="row">
+									<a href="{{ url('/noteroom/'.$note->id) }}">
+										{{$note->title}}
+									</a>
+								</div>
 							@empty
 								You currently have no notes for this noteroom...
 							@endforelse
