@@ -42,9 +42,17 @@ class NoteroomController extends Controller
             'title' => 'required'
         ]);
 
-        // need to generate invite code
-        // TODO: make this auto-generate code
-        $inviteCode = "TEST";
+        $chars = "abcdefghijkmnopqrstuvwxyz023456789";
+        srand((double)microtime()*1000000);
+        $i = 0;
+        $inviteCode = '' ;
+
+        while ($i <= 7) {
+            $num = rand() % 33;
+            $tmp = substr($chars, $num, 1);
+            $inviteCode = $inviteCode . $tmp;
+            $i++;
+        }
 
         // create the noteroom
         $n = Noteroom::create([

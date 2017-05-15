@@ -35,6 +35,7 @@ var emptyEditor = true;
 |
 */
 
+// Returns to the server what room client should join
 socket.on('whatRoom', function(data) {
   socket.emit('thisRoom', {room: noteroomId});
 })

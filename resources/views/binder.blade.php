@@ -91,6 +91,11 @@
 				<div class="panel-heading">
 					@if ($current) 
 					Your Notes for {{$current->title}}
+					{{-- <div class="clearfix"> --}}
+						<div class="pull-right">
+							Invite Code: {{$current->invite_id}}
+						</div>
+					{{-- </div> --}}
 					@else
 					Please Select Noteroom
 					@endif
