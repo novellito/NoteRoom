@@ -16,7 +16,7 @@ class CreateNoteroomUserTable extends Migration
         Schema::create('noteroom_user', function(Blueprint $table)
         {
             $table->integer('noteroom_id')->unsigned();
-            $table->integer('user_id')->unsigned();
+            $table->integer('user_id')->unsigned();       
         });
     }
 

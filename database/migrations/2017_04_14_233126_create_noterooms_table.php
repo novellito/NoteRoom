@@ -19,8 +19,6 @@ class CreateNoteroomsTable extends Migration
             $table->string('invite_id');
             $table->timestamps();
         });
-
-            
     }
 
     /**
