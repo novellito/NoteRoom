@@ -5,7 +5,7 @@
  @section('content')
 
 <style>
-	.subjects.binder {
+	.subjects.binder,.myNotes {
 		font-size: 50px;
 	}
 
@@ -102,7 +102,7 @@
 						@if ($current)
 							@forelse ($current->notes as $note)
 								<div class="row">
-									<a href="{{ url('/noteroom/'.$note->id) }}">
+									<a class="myNotes" href="{{ url('/noteroom/'.$note->id) }}">
 										{{$note->title}}
 									</a>
 								</div>

@@ -46,7 +46,7 @@
             <ul class="dropdown-menu">
               <div class="panel-group" id="accordion" style="margin-bottom: 0px;">
                 <div class="panel-heading">
-                  <a href="{{ url('/binder') }}" class ="dropdown-item">My Noterooms</a>
+                  <a href="{{ url('/binder') }}" class ="dropdown-item">My Binder</a>
                  <div class="panel-collapse collapse" id="collapseOne"> 
                     <div class="panel-body" style="padding-top:5px"> 
                     {{-- TODO: need to change the urls to go to binder with noteroom page selected --}}
@@ -92,11 +92,7 @@
                   </div>
                 </div>
               </div>
-              <!--<li>
-                <div class="panel-heading" id="create">
-                  <a href="#" class ="dropdown-item">Create Noteroom</a>
-                </div>
-              </li>-->
+          
               </div>
             </ul>
           </li>
@@ -106,7 +102,6 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> {{ Auth::user()->name }}  <i class="fa fa-user-circle" aria-hidden="true" style="font-size: 1.5em;"></i></a>
           <ul class="dropdown-menu">
-            <!--<li><a class="dropdown-item" href="/NoteRoom/public/binder">My Binder</a></li>-->
             <li><a class="dropdown-item" href="#">Settings</a></li>
              <!-- Authentication Links -->
                         @if (Auth::guest())
@@ -114,12 +109,7 @@
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
                             <li>
-                                <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>-->
-
-                                <!--<ul class="dropdown-menu" role="menu">-->
-                                    <!--<li>-->
+                           
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -129,8 +119,7 @@
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
-                                    <!--</li>-->
-                                <!--</ul>-->
+                                  
                             </li>
                         @endif
           </ul>
