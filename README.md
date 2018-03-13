@@ -20,4 +20,4 @@ My contributions to this project include setting up the key functionality of the
 
 ![landingnr](https://user-images.githubusercontent.com/21237266/26888910-501f2148-4b61-11e7-9e28-cbdb35e6e0db.PNG)
 
-![notes](https://user-images.githubusercontent.com/21237266/26888967-783297aa-4b61-11e7-9a40-04
+![notes](https://user-images.githubusercontent.com/21237266/26888967-783297aa-4b61-11e7-9a40-04)
